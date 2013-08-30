@@ -70,7 +70,7 @@
      - Program in execution
      - State
      - Independent, executing entity
-     - user/kernal
+     - user/kernel
 **** Process State
      Can describe a characteristic of a process. (Fig 3.2)
 ***** Process Flow
@@ -107,3 +107,46 @@
   
 
     
+**** Process Representation
+     Signal Handlers
+      Syscalls
+      IO info - File Pointers
+      Limits / Permissions
+      Environment
+***** PCB
+      Process Control Block
+      ID, State, Control
+      | Process ID      | incremental, Parent ID: report back after completion                             |
+      | UID             | User ID, who owns the process                                                    |
+      | State           | Ready, Running, Blocked, Current program counter, stack pointer, register values |
+      | Memory Info     | Pointers to page tables                                                          |
+      | Scheduling Info | Priority, Usage                                                                  |
+      | Accounting Info | Timers                                                                           |
+      | Events          | foobar                                                                           |
+
+**** Process Implementation
+***** Process Image
+      - Process Table: Keeps track of PCBs
+        | PCB  | attribute | ... | ... | ...                   | ... | ... |
+        |------+-----------+-----+-----+-----------------------+-----+-----|
+        | PCB0 |           |     |     |                       |     |     |
+        | PCB1 |           |     |     |                       |     |     |
+        | PCB2 |           |     |     | (pointer to Mem info) |     |     |
+        | PCB3 |           |     |     |                       |     |     |
+        | PCB4 |           |     |     |                       |     |     |
+        | PCB5 |           |     |     |                       |     |     |
+        | PCB6 |           |     |     |                       |     |     |
+      - Memory Info:
+        | Stack |
+        |-------|
+        | v     |
+        | ^     |
+        |-------|
+        | Heap  |
+        |-------|
+        | Data  |
+        |-------|
+        | Text  |
+
+	
+
