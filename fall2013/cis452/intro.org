@@ -1,0 +1,66 @@
+* OS
+** Chapter 1
+*** Definition
+    - Interface between user and machine
+    - "An interrupt driven control program"
+**** Goal:
+     - Convenience for user
+     - Control program
+**** Purpose:
+     - Efficient use of the system resources
+     - Recourse Manager
+*** System Model
+    - CPU
+    - System Bus
+    - DMA: Direct Memory Access
+*** Interrupts
+    - Control transfers, hardware -> CPU
+    - model
+      | Main | -> | interrupt |    | resume |
+      |------+----+-----------+----+--------|
+      |      |    |           | -> |        |
+**** Types:
+***** Hardware 
+      - Parity
+***** Software 
+      - Overflow
+***** Trap|Exception 
+      - Page Fault
+**** Service
+     1. Recognize
+     2. Control Transfer
+     3. Return state
+*** Memory Hierarchy 
+    | Type            | Storage | Speed |
+    |-----------------+---------+-------|
+    | registers       | Low     | High  |
+    | cache           |         |       |
+    | electronic disk |         |       |
+    | magnetic disk   |         |       |
+    | optical disk    |         |       |
+    | magnetic tapes  | High    | Low   |
+*** Protection
+**** Time   
+     - Time is a resource of the CPU
+     - Timers implemented
+     - A program can hog the system but not monopolize it.
+**** Space (memory)
+     - Create fences around blocks of memory
+**** Dual Mode Operation
+     - Root (admin) vs User : Privileged Instructions
+     - A user doesn't control, the user makes requests and the OS fulexecuteem.
+       | Userland | execute a process | sys call |                      | return to process |
+       |----------+-------------------+----------+----------------------+-------------------|
+       | System   |                   |          | execute the sys call |                   |
+***** System call interface 
+      A printf call goes out to the kernel for stdout writing
+      1. User application makes requests to the interface
+      2. Kernel executes sys calls
+      3. Returns pointer and data to interface
+      4. Returns information to user process
+     	 
+** Chapter 2      
+   Management | Services : See Fig 2.1
+   Modular | Layered : See Fig 2.13
+
+   

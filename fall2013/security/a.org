@@ -1,0 +1,16 @@
+* Things
+  |-----------------+---------------+-----------------------------+---------------------+--------+---------|
+  | THREATS         | Data          | Hardware                    | Software            | People | Network |
+  |-----------------+---------------+-----------------------------+---------------------+--------+---------|
+  | Confidentiality | SQL Injection | Reverse Engineering         | Reverse Engineering |        |         |
+  |                 |               | Plans for super secret chip |                     |        |         |
+  |-----------------+---------------+-----------------------------+---------------------+--------+---------|
+  | Integrity       | SQL Injection | Hardware Trojans            | Modified software   |        |         |
+  |-----------------+---------------+-----------------------------+---------------------+--------+---------|
+  | Availability    | SQL Injection | Physical destruction        |                     |        |         |
+  |                 |               | Theft                       |                     |        |         |
+  |-----------------+---------------+-----------------------------+---------------------+--------+---------|
+
+** Confidentiality
+** Integrity
+** Availability
