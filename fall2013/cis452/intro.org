@@ -58,7 +58,6 @@
       2. Kernel executes sys calls
       3. Returns pointer and data to interface
       4. Returns information to user process
-     	 
 ** Chapter 2      
    Management | Services : See Fig 2.1
    Modular | Layered : See Fig 2.13
