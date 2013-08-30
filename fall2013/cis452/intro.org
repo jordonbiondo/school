@@ -64,3 +64,37 @@
    Modular | Layered : See Fig 2.13
 
    
+** Chapter 3
+*** Processes
+**** Definition
+     - Program in execution
+     - State
+     - Independent, executing entity
+     - user/kernal
+**** Process State
+     Can describe a characteristic of a process. (Fig 3.2)
+***** Process Flow
+     |  action v state >  | NEW   | READY   | RUNNING    | WAITING | TERMINATED |
+     |--------------------+-------+---------+------------+---------+------------|
+     | admitted           | READY |         |            |         |            |
+     |--------------------+-------+---------+------------+---------+------------|
+     | interrupt          |       |         | READY      |         |            |
+     |--------------------+-------+---------+------------+---------+------------|
+     | scheduler dispatch |       | RUNNING |            |         |            |
+     |--------------------+-------+---------+------------+---------+------------|
+     | IO completion      |       |         |            | READY   |            |
+     |--------------------+-------+---------+------------+---------+------------|
+     | IO event           |       |         | WAITING    |         |            |
+     |--------------------+-------+---------+------------+---------+------------|
+     | exit               |       |         | TERMINATED |         |            |
+***** States     
+     | State           | Def              |
+     |-----------------+------------------|
+     | Ready:          | Queued, Runnable |
+     | Running         | On the CPU       |
+     | Blocked/Waiting | IO, Events       |
+
+
+  
+
+    
