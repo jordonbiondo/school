@@ -62,8 +62,6 @@
 ** Chapter 2      
    Management | Services : See Fig 2.1
    Modular | Layered : See Fig 2.13
-
-   
 ** Chapter 3
 *** Processes
 **** Definition
