@@ -148,7 +148,7 @@
 	Runs the process.
 ***** Blocking
       - Waiting for an event
-	wait();waits for event (child process to terminate)
+	wait(): waits for event (child process to terminate)
 ***** Terminate
       - conclude executions, Recover resources
       - exit() : terminate and return to wait() in parent
