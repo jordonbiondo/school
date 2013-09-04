@@ -1,0 +1,14 @@
+* Homework 1
+** Chapter 1
+*** 22   
+    - Change of flow
+    - Trap is a software generated interrupt
+    - Yes. Errors, syscalls rolling
+** Chapter 2
+*** 5   
+    - Reads Commands & executes
+    - Interpretter can be modified and replaced
+      - OS can run if interpretter locks up
+      - Improves security
+** Practical
+   - Kernal/irq/internals.h : 0x00000008

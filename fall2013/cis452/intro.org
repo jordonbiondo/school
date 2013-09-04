@@ -95,15 +95,6 @@
      |-----------------+------------------------------------------------------------|
      | Terminated      | Orphan: parent killed.                                     |
      |                 | Zombie: parent not ready, still holds resources after kill |
-
-
-
-
-
-
-  
-
-    
 **** Process Representation
      Signal Handlers
       Syscalls
@@ -144,6 +135,25 @@
         | Data  |
         |-------|
         | Text  |
+**** Process Operations
+***** Create
+      - Spawn new process
+      - Parent
+      - fork() function
+	creates exact copy of parent process in new address space
+***** Execution
+      - exec() function
+	Many different versions of the function
+	Replaces text (code) and data areas with the new programs text and data.
+	Runs the process.
+***** Blocking
+      - Waiting for an event
+	wait();waits for event (child process to terminate)
+***** Terminate
+      - conclude executions, Recover resources
+      - exit() : terminate and return to wait() in parent
+	
+	
 
 	
 
