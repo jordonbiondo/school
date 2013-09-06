@@ -1,0 +1,36 @@
+Script started on Thu 29 Aug 2013 11:03:21 AM EDT
+[eos22:~/src/school/fall2013/OS]$ [eos22:~/src/school/fall2013/OS]$ Hello, world.
+You are the 268435456.000000 person to write this program!
+[eos22:~/src/school/fall2013/OS]$ GNU gdb (GDB) Red Hat Enterprise Linux (7.2-60.el6_4.1)
+Copyright (C) 2010 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/biondoj/src/school/fall2013/OS/lab1-6bin...done.
+(gdb) Breakpoint 1 at 0x40050c: file lab1-6.c, line 6.
+(gdb) Starting program: /home/biondoj/src/school/fall2013/OS/lab1-6bin 
+
+Breakpoint 1, main () at lab1-6.c:6
+6	   double num = 0.0;
+Missing separate debuginfos, use: debuginfo-install glibc-2.12-1.107.el6_4.2.x86_64
+(gdb) 7	   printf ("Hello, world.\n");
+(gdb) $1 = 0
+(gdb) Hello, world.
+8	   num = pow(2, 28);
+(gdb) 9	   printf ("You are the %f person to write this program!\n", num);
+(gdb) $2 = 268435456
+(gdb) You are the 268435456.000000 person to write this program!
+10	   return 0;
+(gdb) 11	} 
+(gdb) 0x0000003f9e01ecdd in __libc_start_main () from /lib64/libc.so.6
+(gdb) Single stepping until exit from function __libc_start_main,
+which has no line number information.
+
+Program exited normally.
+(gdb) [eos22:~/src/school/fall2013/OS]$ exit
+
+Script done on Thu 29 Aug 2013 11:04:18 AM EDT
