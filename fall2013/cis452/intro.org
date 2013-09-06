@@ -31,14 +31,14 @@
      2. Control Transfer
      3. Return state
 *** Memory Hierarchy 
-    | Type            | Storage | Speed |
-    |-----------------+---------+-------|
-    | registers       | Low     | High  |
-    | cache           |         |       |
-    | electronic disk |         |       |
-    | magnetic disk   |         |       |
-    | optical disk    |         |       |
-    | magnetic tapes  | High    | Low   |
+    | Type            | Storage | Speed  |
+    |-----------------+---------+--------|
+    | registers       | Low     | High   |
+    | cache           |         |        |
+    | electronic disk |         |        |
+    | magnetic disk   |         |        |
+    | optical disk    |         |        |
+    | magnetic tapes  | High    | Low    |
 *** Protection
 **** Time   
      - Time is a resource of the CPU
@@ -156,4 +156,10 @@
 	
 
 	
+
+
+
+
+
+
 
