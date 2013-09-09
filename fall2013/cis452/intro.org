@@ -221,5 +221,5 @@
        Blocking: won't continue until message sent was received
 ****** Asynchronous
        Buffering: will continue after a send.
-       Sending is generally done asynchronously, receiving generally blocks
+       Sending is generally done asynchronously, receiving generally blocking
        Likely sending to the OS
