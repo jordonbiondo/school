@@ -170,7 +170,24 @@
       | Process1 | cpu | io  | cpu | io  |    |   |   |   |
       |----------+-----+-----+-----+-----+----+---+---+---|
       | Process2 |     | cpu | io  | cpu | io |   |   |   |
+***** Context Switch
+      - switch processes
+        1. executing p0
+	2. save state in pcb0
+	3. reload state in pcb1
+	4. execute p1
+	5. save state into pcb1
+	6. reload state in pcb0
+	7. continue executing p1
+      - Exchange Environment
+      - Mechanism:
+        | type        | description                    | example  |
+        |-------------+--------------------------------+----------|
+        | Interrupt   | external event                 | (timer)  |
+        | System call | task voluntarily waits         | (open()) |
+        | Trap        | caused by current instructions | (fault)  |
 
+	   
 
 
 
