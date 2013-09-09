@@ -181,13 +181,36 @@
 	7. continue executing p1
       - Exchange Environment
       - Mechanism:
-        | type        | description                    | example  |
+        | Type        | Description                    | Example  |
         |-------------+--------------------------------+----------|
-        | Interrupt   | external event                 | (timer)  |
-        | System call | task voluntarily waits         | (open()) |
-        | Trap        | caused by current instructions | (fault)  |
+        | Interrupt   | external event                 | timer    |
+        | System call | task voluntarily waits         | open()   |
+        | Trap        | caused by current instructions | fault    |
+
 
 	   
 
 
+
+**** Interprocess Communication (IPC)
+***** Types
+****** Shared Memory
+       One process writes to a memory location and another one reads it
+****** Message Passing
+       Process sends message to the OS, OS handles sending it to the other process
+       
+	  
+
+***** Primitives
+      - Read Write
+      - Send Receive
+***** Addressing:
+      - Direct
+	Communicating with a named entity
+	ex: send(process1, message)
+      - Indirect
+	Communicating with a services
+	ex: send(service, message)
+
+	
 
