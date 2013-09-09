@@ -58,7 +58,7 @@
       2. Kernel executes sys calls
       3. Returns pointer and data to interface
       4. Returns information to user process
-** Chapter 2      
+** Chapter 2
    Management | Services : See Fig 2.1
    Modular | Layered : See Fig 2.13
 ** Chapter 3
@@ -152,13 +152,24 @@
 ***** Terminate
       - conclude executions, Recover resources
       - exit() : terminate and return to wait() in parent
-	
-	
+**** Process Scheduling
+     Purpose: Efficient, Higher throughput
+***** Schedule example
+****** Inefficient: linear
+       8 total time units
+      | cpu time |   1 |  2 |   3 |  4 |   5 |  6 |   7 |  8 |
+      |----------+-----+----+-----+----+-----+----+-----+----|
+      | Process1 | cpu | io | cpu | io |     |    |     |    |
+      |----------+-----+----+-----+----+-----+----+-----+----|
+      | Process2 |     |    |     |    | cpu | io | cpu | io |
 
-	
-
-
-
+****** Efficient: scheduled
+       5 total time units
+      | cpu time |   1 | 2   | 3   | 4   |  5 | 6 | 7 | 8 |
+      |----------+-----+-----+-----+-----+----+---+---+---|
+      | Process1 | cpu | io  | cpu | io  |    |   |   |   |
+      |----------+-----+-----+-----+-----+----+---+---+---|
+      | Process2 |     | cpu | io  | cpu | io |   |   |   |
 
 
 
