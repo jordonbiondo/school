@@ -171,26 +171,21 @@
       |----------+-----+-----+-----+-----+----+---+---+---|
       | Process2 |     | cpu | io  | cpu | io |   |   |   |
 ***** Context Switch
-      - switch processes
-        1. executing p0
-	2. save state in pcb0
-	3. reload state in pcb1
-	4. execute p1
-	5. save state into pcb1
-	6. reload state in pcb0
-	7. continue executing p1
-      - Exchange Environment
-      - Mechanism:
-        | Type        | Description                    | Example  |
-        |-------------+--------------------------------+----------|
-        | Interrupt   | external event                 | timer    |
-        | System call | task voluntarily waits         | open()   |
-        | Trap        | caused by current instructions | fault    |
-
-
-	   
-
-
+****** switch processes
+       1. executing p0
+       2. save state in pcb0
+       3. reload state in pcb1
+       4. execute p1
+       5. save state into pcb1
+       6. reload state in pcb0
+       7. continue executing p1
+****** Exchange Environment
+****** Mechanism:
+       | Type        | Description                    | Example |
+       |-------------+--------------------------------+---------|
+       | Interrupt   | external event                 | timer   |
+       | System call | task voluntarily waits         | open()  |
+       | Trap        | caused by current instructions | fault   |
 
 **** Interprocess Communication (IPC)
 ***** Types
@@ -205,12 +200,26 @@
       - Read Write
       - Send Receive
 ***** Addressing:
-      - Direct
-	Communicating with a named entity
-	ex: send(process1, message)
-      - Indirect
-	Communicating with a services
-	ex: send(service, message)
-
+****** Direct
+       Communicating with a named entity
+       ex: send(process1, message)
+****** Indirect
+       Communicating with a services
+       ex: send(service, message)
+***** Naming
+****** Symmetric 
+       - both
+****** Asymmetric
+       - one
+       Send(p, message)
+       Recv(* &message)
 	
 
+
+***** Timing
+****** Synchronous
+       Blocking: won't continue until message sent was received
+****** Asynchronous
+       Buffering: will continue after a send.
+       Sending is generally done asynchronously, receiving generally blocks
+       Likely sending to the OS
