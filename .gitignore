@@ -1,4 +1,11 @@
+*.aux
+*.toc	
 *.elc
 *.*~
 /fall2013/cis452/intro.html
 /fall2013/cis452/hw3.html
+*.out
+*.pdf
+*.tex
+*.log
+/fall2013/cis452/hw/homework_file.toc
