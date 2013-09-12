@@ -1,0 +1,12 @@
+Hello from child
+total 48
+drwx--x--x 2 biondoj users 4096 Sep 12 11:19 .
+drwx--x--x 5 biondoj users 4096 Sep 12 10:21 ..
+-rw------- 1 biondoj users   17 Sep 12  2013 crap2.txt
+-rw------- 1 biondoj users    2 Sep 12 11:19 crap2.txt~
+-rw------- 1 biondoj users  484 Sep 12 11:15 crap.txt
+-rw------- 1 biondoj users  396 Sep 12 10:21 prog1.c
+-rwx--x--x 1 biondoj users 7088 Sep 12 10:22 prog1.out
+-rw------- 1 biondoj users  556 Sep 12 11:19 question-3-4.c
+-rw------- 1 biondoj users  309 Sep 12 11:00 question-3-4.c~
+-rwx--x--x 1 biondoj users 7876 Sep 12 11:19 question-3-4.out
