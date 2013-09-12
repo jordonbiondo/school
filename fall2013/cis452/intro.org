@@ -193,9 +193,6 @@
        One process writes to a memory location and another one reads it
 ****** Message Passing
        Process sends message to the OS, OS handles sending it to the other process
-       
-	  
-
 ***** Primitives
       - Read Write
       - Send Receive
@@ -213,9 +210,6 @@
        - one
        Send(p, message)
        Recv(* &message)
-	
-
-
 ***** Timing
 ****** Synchronous
        Blocking: won't continue until message sent was received
@@ -223,3 +217,39 @@
        Buffering: will continue after a send.
        Sending is generally done asynchronously, receiving generally blocking
        Likely sending to the OS
+       
+**** Shared Memory
+     | Parent        | Child         |
+     |---------------+---------------|
+     | x = 3         |               |
+     | fork()        |               |
+     | print(x) -> 3 | print(x) -> 3 |
+     | ...           | x = 5         |
+     | ...           | exit()        |
+     | print(x) -> 3 |               | 
+***** Functions:
+      | Function                                                | Idea   |
+      |---------------------------------------------------------+--------|
+      | [[elisp:(man "shmget")][int   shmget(key_t key, size_t size, int shmflg)]]        | Create |
+      | [[elisp:(man "shmat")][void* shmat(int shmid, const void *shmaddr, int shmflg)]] | Attach |
+      | [[elisp:(man "shmdt")][int   shmdt(const void *shmaddr)]]                        | Detach |
+      | [[elisp:(man "shmctl")][int   shmctl(int shmid, int cmd, struct shmid_ds *buf)]]  | Remove |
+***** Signals
+      - Software Interrupt
+      - Process Registers signal-handling function
+	function to call when a signal is recieved (what to do)
+      - Asynchronous
+      - Predefined signals:
+	1) SIGCHLD
+	2) SIGINT "C-c"
+	3) SIGUSR1
+      - signal()
+      - kill()
+***** Pipes
+      - Unidirectional, Synchronized communication
+      - On a 4kb ram buffer that acts like a file
+      - Parent -> Write ================ Read -> Child
+	
+	
+
+       
