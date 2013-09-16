@@ -253,3 +253,16 @@
 	
 
        
+*** Threads
+    - Path of execution, a lightweight process
+    - Unlike a process: 
+      a unit or resource ownership (memory, files devices)
+      A thread is a unit of work (execution)
+    - A process may have multiple threads (paths of execution)
+**** A Single Threaded Process      
+***** Text
+****** Loop
+******* Input
+******* Compute
+******* Display
+       	
