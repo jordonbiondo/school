@@ -270,11 +270,11 @@
 ***** Text
 ****** Thread1: Input
        Puts input in shared data space
-****** Compute
+****** Thread2: Compute
        Reads input Data, writes world Data
-****** Display
+****** Thread3: Display
        Read world Data, displays graphics
-***** Data
+***** Data: shared
 ****** Input Data
 ****** World Data
        
