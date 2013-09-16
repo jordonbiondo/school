@@ -310,3 +310,13 @@
       - Periodic Routine (auto backups)
 ***** Program Structure
       - Intuitive Design, especially with OOP
+**** Thread Lifestyle
+***** Create
+      - Function
+      - Arguments
+***** Execution
+      - Running (cpu)
+      - Blocked (wait)
+***** Termination
+      - Return to parent thread
+      - Detach
