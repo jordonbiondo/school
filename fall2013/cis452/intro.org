@@ -296,9 +296,17 @@
 	A thread's children can stop reporting to parent thread and report elsewhere, becoming peers
 **** Benefits of Threads
 ***** Performance
-      - Faster to create because there is no new address space. Create, destroy, and context switch are very easy.
+      - Faster to create because there is no new address space. 
+	Create, destroy, and context switch are very easy.
       - Utilizes multiple cores like processes can.
-	
-
-
-       	 
+      - Shared memory communication 
+	(also a downside due to added developer controlled complexity).
+***** Blocking
+      - Threads time-share CPU
+***** Overlap 
+      - I/O <-> Computation
+      - Example: excel computations cascading
+***** Asynchronous Processing
+      - Periodic Routine (auto backups)
+***** Program Structure
+      - Intuitive Design, especially with OOP
