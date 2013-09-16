@@ -259,24 +259,46 @@
       a unit or resource ownership (memory, files devices)
       A thread is a unit of work (execution)
     - A process may have multiple threads (paths of execution)
-**** A Single Threaded Process Game  
-***** Text
-****** Loop
-******* Input
-******* Compute
-******* Display
-***** Data: shared
-**** A Multi Threaded Process Game
-***** Text
-****** Thread1: Input
-       Puts input in shared data space
-****** Thread2: Compute
-       Reads input Data, writes world Data
-****** Thread3: Display
-       Read world Data, displays graphics
-***** Data: shared
-****** Input Data
-****** World Data
-       
+    - Scheduled by OS like a process
+**** Game example      
+***** A Single Threaded Process Game  
+****** Text
+******* Loop
+******** Input
+******** Compute
+******** Display
+****** Data: shared
+***** A Multi Threaded Process Game
+****** Text
+******* Thread1: Input
+       	Puts input in shared data space
+******* Thread2: Compute
+       	Reads input Data, writes world Data
+******* Thread3: Display
+       	Read world Data, displays graphics
+****** Data: shared
+******* Input Data
+******* World Data
+**** Process Vs Thread
+***** Process
+      - Address space
+      - Globals
+      - Files
+      - Signals
+      - Timers
+      - Children
+***** Thread
+      - Program counter
+      - Stack
+      - Registers
+      - State
+      - Children
+	A thread's children can stop reporting to parent thread and report elsewhere, becoming peers
+**** Benefits of Threads
+***** Performance
+      - Faster to create because there is no new address space. Create, destroy, and context switch are very easy.
+      - Utilizes multiple cores like processes can.
+	
 
-       	
+
+       	 
