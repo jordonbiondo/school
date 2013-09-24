@@ -252,7 +252,7 @@
 	
 	
 
-       
+      
 *** Threads
     - Path of execution, a lightweight process
     - Unlike a process: 
@@ -320,3 +320,36 @@
 ***** Termination
       - Return to parent thread
       - Detach
+**** File Servers
+***** Single Threaded
+      - Search cache for file
+      - if found, server
+      - if not, block while retrieving from disk
+***** Multi Threaded
+      - has a pool of workers for requests
+      - each request give to a worker
+      - a worker will only block its thread if it needs to read from disk
+      - while blocking, other requests can come in and be served by other workers
+
+*** CPU Scheduling
+    Goal is increased performance (efficiency, throughput)
+    Using a scheduler / dispatcher
+**** Process characteristics
+     - Alternating CPU I/O bursts
+     - Many short CPU bursts
+     - One process has many bursts
+**** Performance Metrics
+     - CPU utilization: % time cpu busy with user process, 40-80%
+     - Throughput: # processes in the unit time
+     - Turnaround time: Time for a job to complete.
+       Process completion time - process start time
+     - Waiting time: time process spends in ready Queue
+       turn around time - cpu burst time
+       
+     
+
+      
+	 
+   
+      
+       	
