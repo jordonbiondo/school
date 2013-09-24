@@ -1,0 +1,14 @@
+* Homework Chapter 4
+  Jordon Biondo
+** Questions
+*** 4.2
+     1. During system calls, user level thread will block an entire process while a kernel level thread will not.
+     2. Kernel level threads can make better use of multiple CPUs unlike strictly user level threads which the scheduler would not know what to do with exactly.
+     3. Any time a program will be making lot's of syscalls, a kernel level thread will be a better choice due to it not blocking.
+*** 4.10
+    - Global Variabls
+    - Heap Memory
+** Practical
+   - The function assigns a thread to a certain cpu, part of the implementation is to ensure that the thread was properly scheduled and is inactive before the assignment.
+   - This function would surely be called during the initilization of the operating system when standard kernel threads are being created and assigned to the CPUs.
+     
