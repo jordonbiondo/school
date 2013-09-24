@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil
+* 458 Lab 3
+** Part 1
+   1. The hash for "This is Jordon" and "This is Gordon" seem to have nothing in common.
+   2. Generating a key and signing a hash with a private key
+      
+      #+BEGIN_SRC shell-script
+	[$] openssl genrsa -out my_priv.key 
+	[$] openssl rsa -pubout -in my_priv.key -out my_pub.key 
+	[$] cat foo.txt | openssl dgst -sha1 -sign my_priv.key -out out_with_key.txt
+      #+END_SRC
+   3. Verifying the signed hash with public key
+      
+      #+BEGIN_SRC shell-script
+	[$] cat foo.txt | openssl dgst -sha1 -verify my_pub.key -signature out_with_key.txt 
+      #+END_SRC
+   4. 
+** Part 2
+   
