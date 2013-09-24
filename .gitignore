@@ -9,3 +9,8 @@
 *.tex
 *.log
 /fall2013/cis452/hw/homework_file.toc
+/fall2013/security/labs/lab3/part2/.sconsign.dblite
+/fall2013/security/labs/lab3/part2/SConstruct~
+/fall2013/security/labs/lab3/part2/classes/src/Uty.class
+/fall2013/security/labs/lab3/part2/classes/src/VerifyRSA.class
+/fall2013/security/labs/lab3/part2/bin/verify-rsa.jar
