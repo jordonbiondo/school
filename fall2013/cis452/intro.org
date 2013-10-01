@@ -162,7 +162,6 @@
       | Process1 | cpu | io | cpu | io |     |    |     |    |
       |----------+-----+----+-----+----+-----+----+-----+----|
       | Process2 |     |    |     |    | cpu | io | cpu | io |
-
 ****** Efficient: scheduled
        5 total time units
       | cpu time |   1 | 2   | 3   | 4   |  5 | 6 | 7 | 8 |
@@ -249,10 +248,6 @@
       - Unidirectional, Synchronized communication
       - On a 4kb ram buffer that acts like a file
       - Parent -> Write ================ Read -> Child
-	
-	
-
-      
 *** Threads
     - Path of execution, a lightweight process
     - Unlike a process: 
@@ -331,6 +326,7 @@
       - a worker will only block its thread if it needs to read from disk
       - while blocking, other requests can come in and be served by other workers
 
+** Chapter 5
 *** CPU Scheduling
     Goal is increased performance (efficiency, throughput)
     Using a scheduler / dispatcher
@@ -346,10 +342,3 @@
      - Waiting time: time process spends in ready Queue
        turn around time - cpu burst time
        
-     
-
-      
-	 
-   
-      
-       	

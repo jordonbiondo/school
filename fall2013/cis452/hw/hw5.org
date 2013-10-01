@@ -84,10 +84,57 @@
    Average Wait:   5.4
 
 * Practical
-  The main scheduling function, found in kernel/sched/core.c is:
+  The main scheduling function, found in kernel/sched/core.c at line 2374 is:
   #+BEGIN_SRC c
   static void __sched __schedule(void); 
   #+END_SRC
 
+  The important functions are
+  - cpu\_rq(_cpu) which returns the run queue where the tasks are located
+  - pick\_next\_task(_run _queue) which actually picks which task should be next
+  - context\_switch(_run _queue, _prev _task, _next _task) which is where the real work is done by actually putting the next task on the cpu and taking the old one off.
+
+#+LATEX: \pagebreak
+
+  Below is the body of the \_\_schedule function with most parts redacted to only show the switching between the current and next task.
+
+    #+BEGIN_SRC c
+      static void __sched __schedule(void)
+      {
+        struct task_struct *prev, *next;
+        unsigned long *switch_count;
+        struct rq *rq;
+        int cpu;
+        
+       need_resched:
+        // snipped
+        cpu = smp_processor_id();
+        rq = cpu_rq(cpu); // get the run queue
+        prev = rq->curr;
+        // snipped
+        pre_schedule(rq, prev);
+        
+        if (unlikely(!rq->nr_running)) idle_balance(cpu, rq);
+        put_prev_task(rq, prev); // set the old current task to be the previous task
+        next = pick_next_task(rq); // get the next task from the run queue
+        clear_tsk_need_resched(prev);
+        rq->skip_clock_update = 0;
+        if (likely(prev != next)) {
+          rq->nr_switches++;
+          rq->curr = next; // set the current task to the one just chosen by pick_next_task()
+          ++*switch_count;
+          
+          context_switch(rq, prev, next); // perform the actual context switch
+          cpu = smp_processor_id();
+          rq = cpu_rq(cpu);
+        } else
+          raw_spin_unlock_irq(&rq->lock);
+        
+        post_schedule(rq);
+        // snipped
+      }
+      
+  #+END_SRC
+  
 
   

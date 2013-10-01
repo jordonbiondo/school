@@ -5,15 +5,100 @@
    2. Generating a key and signing a hash with a private key
       
       #+BEGIN_SRC shell-script
-	[$] openssl genrsa -out my_priv.key 
-	[$] openssl rsa -pubout -in my_priv.key -out my_pub.key 
-	[$] cat foo.txt | openssl dgst -sha1 -sign my_priv.key -out out_with_key.txt
+        openssl genrsa -out my_priv.key 
+        openssl rsa -pubout -in my_priv.key -out my_pub.key 
+        cat foo.txt | openssl dgst -sha1 -sign my_priv.key -out out_with_key.txt
       #+END_SRC
    3. Verifying the signed hash with public key
       
       #+BEGIN_SRC shell-script
-	[$] cat foo.txt | openssl dgst -sha1 -verify my_pub.key -signature out_with_key.txt 
+        cat foo.txt | openssl dgst -sha1 -verify my_pub.key -signature out_with_key.txt 
       #+END_SRC
-   4. 
+
+   4. The private key should only be in the possession of the message sender/signer, the point of private/public key signing is that only one source can sign the message but anyone with the public key should be able to verify that the message was signed by the correct person. If the public key was used to do the signing then that would defeat the entire purpose of signing because it could be signed by anyone with the public key.
+
+#+LATEX: \pagebreak
 ** Part 2
-   
+*** Uty.java   
+   #+BEGIN_SRC java
+     package src;
+     
+     /**
+      ,* Simple printing
+      ,*/
+     public class Uty {
+     
+         public static boolean debug = false;
+     
+         public static void pln(Object o) {System.out.println(o);}
+     
+         public static void dbg(Object o) {if (debug) System.out.println(o);}
+     
+         public static void plnPanic(Object o) {
+             pln(o);
+             System.exit(-1);
+         }
+     }
+     
+   #+END_SRC
+    #+LATEX: \pagebreak
+*** VerifyRSA.java
+    #+BEGIN_SRC java
+            package src;
+            import java.util.*;
+            import java.io.*;
+            import java.security.*;
+            import java.security.spec.*;
+      
+            /**
+             ,* Verify RSA shtuff
+             ,*/
+            public class VerifyRSA {
+                
+                /**
+                 ,* Main
+                 ,*/
+                public static void main(String[] args) {
+            
+                    if (args.length != 3) {
+                        if (args.length == 4 && args[4] == "-debug") Uty.debug = true;
+                        else Uty.plnPanic("USAGE: verify-rsa " 
+                                          + "<key file> <signature file>" 
+                                          + "<text file>");
+                                          
+                    }
+                    
+                    try {
+                        byte[] keyBytes = readAll(args[0]);
+                        byte[] sigBytes = readAll(args[1]);
+                        byte[] textBytes = readAll(args[2]);
+                        
+                        X509EncodedKeySpec pubKeyEncoded = new X509EncodedKeySpec(keyBytes);
+                        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+                        PublicKey pubKey = keyFactory.generatePublic(pubKeyEncoded);
+                        Signature sig = Signature.getInstance("SHA1withRSA");
+            
+                        sig.initVerify(pubKey);
+                        sig.update(textBytes);
+                        Uty.pln((sig.verify(sigBytes)) ? "OK" : "FAIL");
+                        
+                    } catch (Exception e) {
+                        Uty.plnPanic("Error during init\n\t" + e);
+                    }
+                    
+                }
+            
+                /**
+                 ,* Read all the bytes from a file
+                 ,*/
+                public static byte[] readAll(String filename) throws Exception{
+                    FileInputStream streamy = new FileInputStream(filename);
+                    Uty.dbg("byte size of " + filename + ": " + streamy.available());
+                    byte[] bytes = new byte[streamy.available()];
+                    streamy.read(bytes);
+                    streamy.close();
+                    return bytes;
+                }
+            }
+            
+    #+END_SRC
