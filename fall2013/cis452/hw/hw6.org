@@ -1,0 +1,20 @@
+#+OPTIONS: toc:nil
+#+TITLE: 452 Homework 5
+#+AUTHOR: Jordon Biondo
+
+* 1
+  #+BEGIN_SRC java -n
+    boolean token = T;
+    
+    if (token) 
+        token = F;
+    else {
+        while(!token)
+            sleep(5);
+        token = F;
+    }
+    // CS
+    
+    token  = T;
+    
+  #+END_SRC
