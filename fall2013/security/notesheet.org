@@ -1,0 +1,77 @@
+* Notes
+** security
+   For Information systems: Protecting integreity availability and confidentiality of resources. 
+** auth
+   allow parties to verify that the message or data is authentic.
+*** how to store passwords 
+    never store plain text, store hash, compare hashes
+*** what makes a good password
+    length, non dictionary words.
+*** password policy
+    if dumb, people will know what to look for (patterns), (people just add 1 to end), encourage length
+*** password cracking 
+    john, test all values, use dictionary...
+*** bio
+    low false positives, people don't like it, relies on people's bodies not changing (lose eye)
+*** token authentication
+    generate random numbers (wow), used along side other forms of sec
+*** access control
+    allow users only access to certain things, keep track 
+*** access control lists
+    store with thing. which person can do what on that thing
+*** capabilities
+    store with person, what can person do with various things
+*** role based
+    users have access hierarchically based on role or job gives least priviledge possibility
+    can be constrained (have x number of y type of users only)
+*** relational database
+    access control: only allow certain front ends to access database, don't return results for searches for sensitive data. firewall: only let certain people in. push security to front end -> becomes software security instead of database security.
+*** inference attacks
+    piece together anonymized data based on trends (aol) (limit searches to fix) (random sampling)
+   
+** asymmetric cryptography : why?
+   relies on things being hard to solve, np complete problems, polynomial time is good mkay.
+   if algorithm found to solve faster, shit would hit the fan fast
+** confidentiality, integrity, availability
+   data must be accessiable only to those authorized, data must only be changed by authorized people. The system can only be changed by authorized people. The system sould work correctly and not deny access to authorized users.
+** DES :  triple DES : AES 
+   des: 64 or 128bit key:  16 stages : block 64 bit: 2 32 bit halves , expand then xor
+   triple: do des three times to each block... yup 168, 112 or 56 bits key
+   AES symmetric block cipher of 128 bytes. Key sizes: 128, 192 or 256 bits
+   for sec: des < triple < aes
+** confusion and diffusion
+   confustion, substitution key cipher and text very hard to find relation
+   diffustion, permutation transposition, small change in text cascades over entire cipher
+** digital sigs
+   aysm hash like key, veryify m against sig, you know it came from the right person, priv key used
+** block cipher modes
+   CBC: same text in diff blocks, results in different cipher
+   Counter: block -> steam, xor 1 bit at a time
+** block and stream ciphers
+   stream: bit stream xorred with text to get cipher, weak, xor can be reversed. block: encryptes block
+** key distribution 
+   people can eavesdrop and get keys (that's bad mkay)
+** sym/asym crypto
+   asym - one side has keys, sym - both sides have keys, uses exchange
+
+** Secure hash functions 
+   one way hash, block padding, can't undo (very hard at least)
+*** pre-image resistant 
+    hash(m) = h, no way to go h = hash(m)
+*** second pre
+    with m, hash(m0) == hash(m1) (no way)
+*** collision resistant
+    no two m's have same hash
+** rsa and elgamal encryption
+   rsa: factorization is hard, difficult to solve, two prime
+   elgamal: discrete logs are hard, based on diffie, one prime
+** diffie hellman key exchange
+   p1 choose a, g^a mod p send g^a. 
+   p2 choose b, g^b mod p send g^b. g^b^a = g^a^b 
+   getting g^a and g^b is hard because of factoring, relies on the fact that g^a^b == g^b^a which where the verification is security is
+** msg auth : hash based auth codes
+   relys on use of hash functions md5 sha1 etc. used with a crypto key. used to verify and authenticatie data / sender
+** rsa digital sigs, ellitical wat
+   rsa(hash(m)) = c, receiver: h(m) = rsa decryptpub(c), check hash for match
+   As with elliptic curve cryptography in general, the bit size of the public key believed to be needed for ECDSA is about twice the size of the security level, in bits. By comparison, at a security level of 80 bits, meaning an attacker requires the equivalent of about  2^{80} signature generations to find the private key, the size of a DSA public key is at least 1024 bits, whereas the size of an ECDSA public key would be 160 bits. On the other hand, the signature size is the same for both DSA and ECDSA: 4 t bits, where t is the security level measured in bits, that is, about 320 bits for a security level of 80 bits.
+
