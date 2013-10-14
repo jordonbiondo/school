@@ -342,3 +342,11 @@
      - Waiting time: time process spends in ready Queue
        turn around time - cpu burst time
        
+
+** Shared Memory
+*** Mutual Exclusion
+*** Progress
+    - Stuck
+    - Deadlock
+*** Bounded-wait
+
