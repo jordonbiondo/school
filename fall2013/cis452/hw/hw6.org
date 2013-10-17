@@ -1,9 +1,9 @@
 #+OPTIONS: toc:nil
 #+TITLE: 452 Homework 5
 #+AUTHOR: Jordon Biondo
-
-* 1
-  #+BEGIN_SRC java -n
+* HW Chapter 6
+** Consider the following 2-process solution to the Critical Section problem:
+   #+BEGIN_SRC java -n
     boolean token = T;
     
     if (token) 
@@ -16,5 +16,36 @@
     // CS
     
     token  = T;
-    
-  #+END_SRC
+   #+END_SRC
+  The solution fails mutual exclusion under the following conditions:
+  1. P_0 runs line 3 while token is T (condition is OK)
+  2. -context switch-
+  3. P_1 runs line 3 while token is T (condition is OK)
+  4. P_1 runs line 4 then jumps to the critical section
+  5. -context switch-
+  6. P_0 runs line 4 then jumps to the critical section
+  7. Both processes are not in the critical section
+
+** 6.7 
+   ...
+** 6.16
+  - A wait() would need to check the value of the semaphore, this read could be done and return true for both processes if a context switch occured right after the read. Then they would both think that they could advance to the CS even though the first process should have been the only one to advance initially.
+  - A signal()
+
+** Practical
+#+BEGIN_SRC c
+  // found in include/linux/semaphore.h, line 16
+  /**
+   ,* Semaphore
+   ,* The raw_spinlock_t is the spin lock used to
+   ,*   protect the semaphore's critical section operations
+   ,* The count is the value of the semaphore used to see if it's locked
+   ,*/
+  struct semaphore {
+    raw_spinlock_t lock;
+    unsigned int count;
+    struct list_head wait_list;
+  };
+  
+#+END_SRC
+
