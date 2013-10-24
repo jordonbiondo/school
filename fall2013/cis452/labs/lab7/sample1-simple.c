@@ -11,7 +11,6 @@
 #include <errno.h>
 #include <string.h>
 
-#include "critical.h"
 
 #define SIZE 16
 
@@ -20,10 +19,25 @@
  * mutually exclusive long int swap
  */
 void swap_safe(int sem_id, long int* a, long int* b) {
-  critical(sem_id) {
-    long int t = *a;
-    *a = *b;
-    *b = t;
+  struct sembuf buf;
+  buf.sem_num = 0;
+  buf.sem_op = -1;
+  buf.sem_flg = 0;
+  if (semop(sem_id, &buf, 1) != 0) {
+    puts ("semaphore error\n");
+    exit(-1);
+  }
+  
+  long int t = *a;
+  *a = *b;
+  *b = t;
+  
+  buf.sem_num = 0;
+  buf.sem_op = 1;
+  buf.sem_flg = 0;
+  if (semop(sem_id, &buf, 1) != 0) {
+    puts ("semaphore error\n");
+    exit(-1);
   }
 }
 
