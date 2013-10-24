@@ -25,7 +25,7 @@ void swap_safe(int sem_id, long int* a, long int* b) {
   buf.sem_flg = 0;
   if (semop(sem_id, &buf, 1) != 0) {
     puts ("semaphore error\n");
-    exit(-1);
+    return;
   }
   
   long int t = *a;
@@ -37,7 +37,7 @@ void swap_safe(int sem_id, long int* a, long int* b) {
   buf.sem_flg = 0;
   if (semop(sem_id, &buf, 1) != 0) {
     puts ("semaphore error\n");
-    exit(-1);
+    return;
   }
 }
 
@@ -76,7 +76,6 @@ int main (int argc, char* argv[])
 
   if (!(pid = fork())) { 
     for (i=0; i<loop; i++) { 
-      // swap the contents of shmPtr[0] and shmPtr[1] 
       swap_safe(sem_id, shmPtr, shmPtr+1);
     } 
     if (shmdt (shmPtr) < 0) { 
@@ -87,7 +86,6 @@ int main (int argc, char* argv[])
   } 
   else 
     for (i=0; i<loop; i++) { 
-      // swap the contents of shmPtr[1] and shmPtr[0] 
       swap_safe(sem_id, shmPtr+1, shmPtr);
     }
 
