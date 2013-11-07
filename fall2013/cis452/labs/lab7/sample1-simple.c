@@ -11,7 +11,6 @@
 #include <errno.h>
 #include <string.h>
 
-
 #define SIZE 16
 
 
@@ -20,17 +19,17 @@
  */
 void swap_safe(int sem_id, long int* a, long int* b) {
   struct sembuf buf;
-  buf.sem_num = 0;
-  buf.sem_op = -1;
-  buf.sem_flg = 0;
-  if (semop(sem_id, &buf, 1) != 0) {
-    puts ("semaphore error\n");
-    return;
-  }
+  /* buf.sem_num = 0; */
+  /* buf.sem_op = -1; */
+  /* buf.sem_flg = 0; */
+  /* if (semop(sem_id, &buf, 1) != 0) { */
+  /*   puts ("semaphore error\n"); */
+  /*   return; */
+  /* } */
   
-  long int t = *a;
-  *a = *b;
-  *b = t;
+  /* long int t = *a; */
+  /* *a = *b; */
+  /* *b = t; */
   
   buf.sem_num = 0;
   buf.sem_op = 1;
