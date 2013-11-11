@@ -1,0 +1,29 @@
+#+OPTIONS: toc:nil
+#+TITLE: 452 Homework 5
+#+AUTHOR: Jordon Biondo
+* Lab 9
+1. The connection just hangs and never goes through.
+2. Incoming traffic  on the tcp protocol (-p), headed to destination  port (-dport) -22 will be accepted.
+3. sudo iptables -A INPUT -s 148.61.162.105 -j DROP
+4. Yes
+5. No
+6. The first rule from top to bottom that meets the requirements is used
+7. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+  
+
+
+   
