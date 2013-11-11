@@ -1,17 +1,35 @@
 #+OPTIONS: toc:nil
-#+TITLE: 452 Homework 5
+#+TITLE: 458 - Lab9 - iptables
 #+AUTHOR: Jordon Biondo
-* Lab 9
+#+STYLE: <link href="style.css" rel="stylesheet"></link>
+* Answers
 1. The connection just hangs and never goes through.
 2. Incoming traffic  on the tcp protocol (-p), headed to destination  port (-dport) -22 will be accepted.
-3. sudo iptables -A INPUT -s 148.61.162.105 -j DROP
+3. deny eos ip: 
+   #+BEGIN_SRC shell-script
+     sudo iptables -A INPUT -s 148.61.162.105 -j DROP
+   #+END_SRC
 4. Yes
 5. No
 6. The first rule from top to bottom that meets the requirements is used
-7. 
-
-
-
+7. Allowing pings:
+   #+BEGIN_SRC shell-script
+     iptables -A INPUT -p icmp --icmp-type 8 -j ACCEPT
+     iptables -A OUTPUT -p icmp --icmp-type 0 -j ACCEPT 
+   #+END_SRC
+   tested by pinging the vm
+8. Allowing loopback:
+   #+BEGIN_SRC shell-script
+     iptables -A INPUT -i lo -j ACCEPT
+     iptables -A OUTPUT -o lo -j ACCEPT
+   #+END_SRC
+   tested by pinging localhost
+9. Limiting ssh attempts:
+   #+BEGIN_SRC shell-script
+     iptables -A INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent --set
+     iptables -I INPUT -p tcp --dport 22 -i eth0 -m state --state NEW -m recent  --update --seconds 60 --hitcount 2 -j DROP
+   #+END_SRC
+10. The rule is a defense against brute force ssh attacks
 
 
 
