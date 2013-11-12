@@ -1,0 +1,19 @@
+#+OPTIONS: toc:nil
+#+TITLE: 458 - Lab10 - nmap
+#+AUTHOR: Jordon Biondo
+#+STYLE: <link href="style.css" rel="stylesheet"></link>
+* Answers
+1. 64 up in EOS/ARCH, 32 up in Datacomm
+2. They are not accepting ping traffic
+
+
+
+
+
+
+
+   
+  
+
+
+   
