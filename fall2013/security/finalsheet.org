@@ -1,0 +1,94 @@
+* Trusted systems
+** Bell LaPadula
+- top secret -> unclassified public
+- confidentiality
+- contrast to biba which is about integrity
+- no read up
+- no write down
+- no sec changes during operation
+** Biba integrety
+- prevent unauth mods
+- maintain consistency
+- no read down
+- no write up
+** reference model
+- validate read and writes on os
+- must be tamper proof and always on
+- must be small
+** TPM - trusted platform module
+- secure key generation
+- endorsement key
+- sealing
+- can be used on disks, passwords, platforms
+** auth boot
+- check sec on boot
+- full disk encry
+- extends bios firmware
+* OS Sec
+- configure to use max security
+- only update programs that you know are bug proof 
+- supervise program at higher level, non root -> root bad
+* malware
+** virus
+attached to some program you got
+** worm
+spreads about writes it self around local/network
+** trojan
+pretends to be useful, actually malware
+** polymorphic code
+- same result, different code
+- code changes, can't detect known bad pattern
+- sandboxxing can block
+** payload
+- botnet
+- backdoor
+- rootkit
+** detection
+- virtualization
+- sandbox
+- hash scans ...
+* DDOS
+** what
+- spam spam spam
+- botnet
+- echo requests smurf
+- reflected, send request to other, reply to victim 
+- dns amp, flood with dns response traffic - like reflect
+** defense
+- firewall rules to only allow needed traffic
+- rate limiting switches, some routers have good defense
+- app front end hardward, analyze packets, and ident them
+- itrustion prevent system,
+- dds, block conneciton based attacks
+- reroute traffic to black hole 
+* intrustion detection
+- sig based: compare packets to known attach patterns as sigs
+- anomoly based: look for out of ordanary traffic, ports etc 
+- honey pots, fake computers set up to trap attacks
+- ips: actually block intrusions, false positives
+- ethics and stuff
+  * Software Security
+      + Buffer overflow attacks and defenses
+      + Race conditions
+      + Injection attacks
+      + Format string vulnerabilities
+      + Least privledge
+  * Operating System security
+      + Configuration
+      + Program updates (should they always be done?)
+      + Mediation between programs
+      + Resource management
+      + Logging
+      + Least privldege as applied to system admin
+      + VM security
+
+
+
+
+
+
+
+
+
+								
+
